@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "XacNhanDonHang";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+
+@using ShopWatches.Models
+@model List<ShopWatches.Models.HoaDon>
+<link href="~/Content/dataTables.bootstrap.css" rel="stylesheet" />
+<h1 class="page-header">
+    <a href="/QLHoaDon/Index" class="btn btn-outline btn-primary">Quay lại</a>
+</h1>
+<div class="dataTable_wrapper">
+    <table class="table table-striped table-bordered table-hover" id="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Khách hàng</th>
+                <th>Địa chỉ</th>
+                <th>Email</th>
+                <th>SĐT</th>
+                <th>Nơi giao</th>
+                <th>Thời gian</th>
+                <th>Tổng</th>
+                <th>Chi tiết</th>
+                <th>Duyệt</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    <tr class="even gradeA">
+                        <td>@Model[i].MaHoaDon</td>
+                        <td>@Model[i].TenKhachHang</td>
+                        <td>@Model[i].DiaChi</td>
+                        <td>@Model[i].Email</td>
+                        <td>@Model[i].SDT</td>
+                        <td>@Model[i].DiaChiGiaoHang</td>
+                        <td>@Model[i].ThoiGianGiaoHang</td>
+                        <td>@Model[i].TongTien</td>
+                        <td><a href="/QLHoaDon/ChiTietHd/@Model[i].MaHoaDon" class="btn btn-outline btn-primary">Chi tiết</a></td>
+                        <td><a href="/QLHoaDon/Duyet/@Model[i].MaHoaDon" class="btn btn-outline btn-primary">Duyệt</a></td>
+                        @*<td><a href="/QLHoaDon/SuaHd/@Model[i].MaHoaDon" class="btn btn-outline btn-primary">Sửa</a></td>*@
+                        <td><a href="/QLHoaDon/XoaHd/@Model[i].MaHoaDon" class="btn btn-outline btn-primary">Xóa</a></td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="odd gradeA">
+
+                        <td>@Model[i].MaHoaDon</td>
+                        <td>@Model[i].TenKhachHang</td>
+                        <td>@Model[i].DiaChi</td>
+                        <td>@Model[i].Email</td>
+                        <td>@Model[i].SDT</td>
+                        <td>@Model[i].DiaChiGiaoHang</td>
+                        <td>@Model[i].ThoiGianGiaoHang</td>
+                        <td>@Model[i].TongTien</td>
+                        <td><a href="/QLHoaDon/ChiTietHd/@Model[i].MaHoaDon" class="btn btn-outline btn-primary">Chi tiết</a></td>
+                        <td><a href="/QLHoaDon/Duyet/@Model[i].MaHoaDon" class="btn btn-outline btn-primary">Duyệt</a></td>
+                        @*<td><a href="/QLHoaDon/SuaHd/@Model[i].MaHoaDon" class="btn btn-outline btn-primary">Sửa</a></td>*@
+                        <td><a href="/QLHoaDon/XoaHd/@Model[i].MaHoaDon" class="btn btn-outline btn-primary">Xóa</a></td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<script src="~/Scripts/sb-admin-2.js"></script>
+
+
